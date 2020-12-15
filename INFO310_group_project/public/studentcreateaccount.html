@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+ * INFO310
+ * studentcreateaccount.html
+ * @author Julia McDowell
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+
+<html ng-app="ConnectionApp">
+    <head>
+        <title>Student Create Account</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+    <body ng-controller="StudentController as studentCtrl">
+        <header>
+            <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            <nav>
+                    <ul>
+                        <li> <a href="welcomepage.html">Home</a></li>
+                        <li> <a href="homeaboutpage.html">About</a></li>
+                        <li class="dropdown"> 
+                            <a href="javascript:void(0)" class="dropbtn">Staff</a>
+                            <div class="dropdown-content">
+                                <a href="staffloginpage.html">Login</a>
+                                <a href="staffcreateaccount.html">Create Account</a>
+                            </div>
+                        </li>
+                        <li class="dropdown"> 
+                            <a href="javascript:void(0)" class="dropbtn">Students</a>
+                            <div class="dropdown-content">
+                                <a href="studentloginpage.html">Login</a>
+                                <a href="studentcreateaccount.html" class="currpage">Create Account</a>
+                            </div>
+                        </li>
+                    </ul> 
+            </nav>  
+            <div align = "center" class="mainheader">
+                <h1>Create Student Account</h1>
+            </div>
+        </header>
+        
+        <div align = "center">
+            <form ng-submit="studentCtrl.registerStudent(student)" required>
+                <label for="studentID"><b>Student ID:</b></label>
+                <input type="number" min="0" max="1000000000" ng-model="student.studentID" required/><br>
+                
+                <label for="username"><b>Username:</b></label>
+                <input type="text" maxlength = "15" ng-model="student.username" required/><br>
+                
+                <label for="firstName"><b>First Name:</b></label>
+                <input type="text" maxlength = "20" ng-model="student.firstname"required/><br>
+
+                <label for="surname"><b>Last Name:</b></label>
+                <input type="text" maxlength = "20" ng-model="student.surname" required/><br>
+                
+                <label for="gender"><b>Gender:</b></label>
+                <select id="student" name="student" ng-model="student.gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Female">Other</option>
+                </select><br>
+                
+                <label for="dateofbirth"><b>Date Of Birth:</b></label>
+                <input type="text" maxlength = "10" placeholder = "DD/MM/YYYY" ng-model="student.dateOfBirth" required/><br>
+                
+                <label for="email"><b>Email:</b></label>
+                <input type="email" maxlength = "30" ng-model="student.email" required/><br>
+                
+                <label for="address"><b>Street Address:</b></label>
+                <input type="text" maxlength = "30" ng-model="student.address" required/><br>
+                
+                <label for="phonenumber"><b>Phone Number:</b></label>
+                <input type="text" maxlength = "20" placeholder ="e.g. (+64) 021 0000 0000" ng-model="student.phoneNumber" required/><br>
+                
+                <label for="category"><b>Field of study:</b></label>
+                <select id="student" name="student" ng-model="student.category" required>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information Science">Information Science</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Gender Studies">Gender Studies</option>
+                </select><br>
+                
+                <label for="searching"><b>Are you currently searching for a staff member?</b></label>
+                <input type="checkbox" ng-model="student.searching"><br><br>
+                
+                <label for="description"><b>Describe yourself:</b></label><br>
+                <textarea type = "text" maxlength = "300" placeholder = "Type a description about yourself here. Maximum of 300 characters." ng-model="student.description" rows="5" cols="50"></textarea><br><br>
+
+                <label for="password"><b>Password:</b></label>
+                <input type="password" maxlength = "20" ng-model="student.password" required/><br><br>
+
+                <button type = "submit">Create Account</button>
+            </form><br>
+            <b>Already have an account? </b>
+            <a href="studentloginpage.html" class="button"> <input type="button" class="lbutton" value="Login"> </a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+ * INFO310
+ * homeaboutpage.html
+ * initial/basic setup for login page
+ * @author Julia McDowell
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+
+<html ng-app="ConnectionApp">
+    <head>
+        <title>Student-Staff Research Connection</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+
+    <body>
+        <header>
+            
+            <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            
+            <nav>
+                    <ul>
+                        <li> <a href="studentaboutpage.html" class="currpage">About</a></li>
+                        <li> <a href="stafflookup.html">Staff Lookup</a></li>
+                        <li> <a href="editstudentprofile.html">Profile</a></li>
+                        <li> <a href="studentnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li>
+                    </ul> 
+            </nav>  
+            <div class="mainheader" style="font-size:20px; text-align: center">
+                <h1>About</h1>
+            </div>
+        </header>
+        
+        <div class="card2">
+            <div class="container2">
+            <h2>Mission</h2>
+            <p>The mission of the Student-Staff Research Connection Application is
+              to manage <br> the matching of interests of students and lecturers when
+              applying for postgraduate study opportunities. </p>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="container2">
+                <h2>Functionality</h2>
+              <p>The system allows students to create a profile, search for staff that match their 
+              department or interest, view staff profiles, <br> and request contact with
+              potential staff collaborators. Staff are also able to create profiles, 
+              search for and view student profiles, <br> receive notifications about 
+              interested students, and manage requests properly.</p>
+            </div>
+        </div>
+        <div class="card2">
+            <div class="container2">
+      
+          <h2>Meet The Team</h2>
+          <table width="100%"> 
+              <tr>
+                  <td><h2>Back-End Development</h2></td>
+                  <td><h2>Front-End Development</h2></td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="card3">
+                    <div class="container3">
+                        <img class="profile" src="images/hugo.jpeg"><br>
+                        <p><b>Hugo Baird</b><br>
+                        baihu868@student.otago.ac.nz</p>
+                    </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card3">
+                    <div class="container3">
+                        <img class="profile" src="images/julia.jpeg"><br>
+                        <p><b>Julia McDowell</b><br>
+                        mcdju419@student.otago.ac.nz</p>
+                    </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="card3">
+                    <div class="container3">
+                        <img class="profile" src="images/leoon.jpeg"><br>
+                        <p><b>Leon Hoogenraad</b><br>
+                        hoole857@student.otago.ac.nz</p>
+                    </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="card3">
+                    <div class="container3">
+                        <img class="profile" src="images/carly.jpeg"><br>
+                        <p><b>Carly Ryan</b><br>
+                        ryaca111@student.otago.ac.nz</p>
+                    </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="card3">
+                    <div class="container3">
+                        <img class="profile" src="images/cedric.jpeg"><br>
+                        <p><b>Cedric Stephani</b><br>
+                        stece111@student.otago.ac.nz</p>
+                    </div>
+                    </div> 
+                  </td>
+              </tr>
+          </table>
+          
+            </div>
+      </div>
+    </body>
+</html>

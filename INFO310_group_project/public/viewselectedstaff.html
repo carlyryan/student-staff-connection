@@ -1,0 +1,63 @@
+<!--
+ * INFO310
+ * viewselectedstaff.html
+ * initial/basic setup for description of professor or student page
+ * @author Carly Ryan
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>View Selected Staff</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+ 
+    <body ng-controller = "allStaffController as allstaffCtrl">
+        <header>
+            <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            <nav>
+                    <ul ng-controller="StudentController as studentCtrl">
+                        <li> <a href="studentaboutpage.html">About</a></li>
+                        <li> <a href="stafflookup.html"  class="currpage">Staff Lookup</a></li>
+                        <li> <a href="editstudentprofile.html">Profile</a></li>
+                        <li> <a href="studentnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
+                    </ul> 
+            </nav>  
+        </header>
+        <div id="outer">
+            <div class="mainheader">
+                <h1>Contact Staff Member</h1>
+            </div>
+        <h4><b> {{allstaffCtrl.selectedStaff.firstname}} {{allstaffCtrl.selectedStaff.surname}} </b></h4>
+            <p> Username: {{allstaffCtrl.selectedStaff.username}}</p>
+            <p> Field: {{allstaffCtrl.selectedStaff.category}}</p>
+            <p> Date of Birth: {{allstaffCtrl.selectedStaff.dateOfBirth}}</p>
+            <p> Gender: {{allstaffCtrl.selectedStaff.gender}}</p>
+            <p> Description: {{allstaffCtrl.selectedStaff.description}}</p>
+        <br>
+        <form ng-controller = "StudentController as studentCtrl" ng-submit="studentCtrl.saveRequest(cr)" required>
+            <input type="hidden" ng-model="cr.studentID" ng-init="cr.studentID=studentCtrl.studentloggedin.studentID">
+            <input type="hidden" ng-model="cr.staffID" ng-init="cr.staffID =allstaffCtrl.selectedStaff.staffID">
+            <input type="hidden" ng-model="cr.studentFirstname" ng-init="cr.studentFirstname=studentCtrl.studentloggedin.firstname">
+            <input type="hidden" ng-model="cr.studentLastname" ng-init="cr.studentLastname=studentCtrl.studentloggedin.surname">
+            <input type="hidden" ng-model="cr.staffFirstname" ng-init="cr.staffFirstname =allstaffCtrl.selectedStaff.firstname">
+            <input type="hidden" ng-model="cr.staffLastname" ng-init="cr.staffLastname =allstaffCtrl.selectedStaff.surname">
+            <input type="hidden" ng-model="cr.staffEmail" ng-init="cr.staffEmail =allstaffCtrl.selectedStaff.email">
+            <input type="hidden" ng-model="cr.studentEmail" ng-init="cr.studentEmail =studentCtrl.studentloggedin.email">
+            <input type="hidden" ng-model="cr.staffPhonenumber" ng-init="cr.staffPhonenumber =allstaffCtrl.selectedStaff.phoneNumber">
+            <input type="hidden" ng-model="cr.studentPhonenumber" ng-init="cr.studentPhonenumber =studentCtrl.studentloggedin.phoneNumber">
+            <label for="message"><b>Contact Request:</b></label><br>
+            <textarea name="Message" placeholder = "Type your contact request message here." ng-model="cr.message" rows="5" cols="50" required="required"></textarea><br>
+            <input type="hidden" ng-model="cr.studentToStaff" ng-init="cr.studentToStaff = true">
+            <button type = "submit">Send Contact Request</button>
+        </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!--
+ * INFO310
+ * editstudentprofile.html
+ * initial/basic setup for description of professor or student page
+ * @author Carly Ryan
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>View Student Profile</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+ 
+    <body ng-controller = "StudentController as studentCtrl">
+        <header>
+            <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            <nav>
+                    <ul ng-controller="StudentController as studentCtrl">
+                        <li> <a href="studentaboutpage.html">About</a></li>
+                        <li> <a href="stafflookup.html">Staff Lookup</a></li>
+                        <li> <a href="editstudentprofile.html" class="currpage">Profile</a></li>
+                        <li> <a href="studentnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="studentCtrl.signOut()">Logout</a></li> 
+                    </ul> 
+            </nav>  
+        </header>
+        <div id="outer">
+            <div class="mainheader">
+                <h1>View Profile</h1>
+            </div>
+        <h4><b> {{studentCtrl.studentloggedin.firstname}} {{studentCtrl.studentloggedin.surname}} </b></h4>
+        <p> Student ID: {{studentCtrl.studentloggedin.studentID}}</p>
+        <p> Username: {{studentCtrl.studentloggedin.username}}</p>
+        <p> Gender: {{studentCtrl.studentloggedin.gender}}</p>
+        <p> Date of Birth: {{studentCtrl.studentloggedin.dateOfBirth}}</p>
+        <p> Field: {{studentCtrl.studentloggedin.category}}</p>
+        <p> Description: {{studentCtrl.studentloggedin.description}}</p>
+        <p> Email Address: {{studentCtrl.studentloggedin.email}}</p>
+        <p> Phone Number: {{studentCtrl.studentloggedin.phoneNumber}}</p>
+        <p> Searching: {{studentCtrl.studentloggedin.searching}}</p>
+        <button>Edit Profile</button><br><br>
+        </div>
+            <div id="inner">
+            ALERT: Currently we do not have the 'Edit Profile' feature working. Please be patient <br>
+            while the developers complete implementation in the coming months. <br>
+            For now, if you have any serious problems with your account details, then contact us. <br>
+            You can find our contact details in our 'About' page and we will respond within 2-3 business days.
+            </div>
+    </body>
+</html>

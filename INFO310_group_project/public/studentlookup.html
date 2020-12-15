@@ -1,0 +1,68 @@
+<!--
+ * INFO310
+ * studentlookup.html
+ * initial/basic setup for main page
+ * cards will iterate through the database to create
+ * The searching and filter mechanism not yet set up
+ * @author Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>Student Lookup</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+ 
+   <body ng-controller = "allStudentController as allstudentCtrl">
+       
+       <header>
+           <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            <nav>
+                    <ul ng-controller="StaffController as staffCtrl">
+                        <li> <a href="staffaboutpage.html">About</a></li>
+                        <li> <a href="studentlookup.html" class="currpage">Student Lookup</a></li>
+                        <li> <a href="editstaffprofile.html">Profile</a></li>
+                        <li> <a href="staffnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
+                    </ul> 
+            </nav>  
+           
+        </header>
+        <div id="outer">
+            <div class="mainheader">
+                <h1>Connect with Students</h1>
+            </div>
+        <form ng-submit="allstudentCtrl.selectSurname(surname)">
+            <label for="name"><b>Search for a student</b></label>
+            <input type="text" placeholder="Enter a student's surname" ng-model="surname"/>
+            <button class="lbutton" type = "submit">Search</button>
+        </form>
+       
+        <label for="category"><b>Field of study:</b></label>
+        <select id="cat" name="cat" ng-model = "selectedCategory" ng-change="allstudentCtrl.selectCategory(selectedCategory)">
+            <option value = "" disabled selected>Select a field</option>
+            <option value = "All" ng-selected="selectedCategory === 'All'" selected>All Fields</option>
+            <option ng-repeat="cat in allstudentCtrl.categories" ng-selected="selectedCategory == cat" value = "{{cat}}">{{cat}}</option>
+        </select><br><br>
+            <div class = "card" ng-repeat="student in allstudentCtrl.student">
+              <div align = "center" class="container">
+                <h4><b> {{student.firstname}} {{student.surname}} </b></h4>
+                <p> Username: {{student.username}}</p>
+                <p> Field: {{student.category}}</p>
+                <p> Date of Birth: {{student.dateOfBirth}}</p>
+                <p> Gender: {{student.gender}}</p>
+                <p> Description: {{student.description}}</p>
+                <button ng-click="allstudentCtrl.selectStudent(student)"> Contact Student </button>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

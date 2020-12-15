@@ -1,0 +1,56 @@
+<!--
+ * INFO310
+ * staffnotificationpage.html
+ * initial/basic setup for main page
+ * cards will iterate through the database to create
+ * The searching and filter mechanism not yet set up
+ * @author Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>Notifications</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+ 
+    <body ng-controller = "allStaffController as allstaffCtrl" ng-init = "allstaffCtrl.getStaffRequests()">
+      
+        <header>
+            <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            <nav>
+                    <ul ng-controller="StaffController as staffCtrl">
+                        <li> <a href="staffaboutpage.html">About</a></li>
+                        <li> <a href="studentlookup.html">Student Lookup</a></li>
+                        <li> <a href="editstaffprofile.html">Profile</a></li>
+                        <li> <a href="staffnotificationpage.html" class="currpage">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li> 
+                    </ul> 
+            </nav> 
+            
+        </header>
+       <div id="outer">
+            <div class="mainheader">
+                <h1>Notifications</h1>
+            </div>
+            <div class = "card" ng-repeat="contactrequest in allstaffCtrl.requests">
+              <div class="container">
+                <p><b> Request ID #{{contactrequest.contactrequestid}}</b></p>
+                <p> {{contactrequest.studentFirstname}} {{contactrequest.studentLastname}}</p>
+                <p> Request Message: {{contactrequest.message}}</p>
+                <button ng-click="allstaffCtrl.approveStudent(contactrequest.studentPhonenumber, contactrequest.studentEmail, contactrequest.studentFirstname, contactrequest.contactrequestid)"> Approve </button>
+                <button ng-click="allstaffCtrl.deleteRequest(contactrequest.studentFirstname, contactrequest.contactrequestid)"> Delete </button>
+                <button ng-click="allstaffCtrl.warning()">View Student Profile</button>
+                <button ng-click="allstaffCtrl.warning()">Forward Request</button>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

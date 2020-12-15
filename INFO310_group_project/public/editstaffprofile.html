@@ -1,0 +1,57 @@
+<!--
+ * INFO310
+ * editstaffprofile.html
+ * initial/basic setup for description of professor or staff page
+ * @author Carly Ryan
+ * Database connection and JavaScript created by Hugo Baird.
+--> 
+ 
+<html ng-app="ConnectionApp">
+    <head>
+        <title>View Staff Profile</title>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/mainjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/StyleSheet.css">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    </head>
+ 
+    <body ng-controller = "StaffController as staffCtrl">
+        <header>
+            <nav class="nav2">
+                <img src="images/navlogo.png">
+            </nav>
+            <nav>
+                    <ul ng-controller="StaffController as staffCtrl">
+                        <li> <a href="staffaboutpage.html">About</a></li>
+                        <li> <a href="studentlookup.html">Student Lookup</a></li>
+                        <li> <a href="editstaffprofile.html" class="currpage">Profile</a></li>
+                        <li> <a href="staffnotificationpage.html">Notifications</a></li> 
+                        <li> <a href="welcomepage.html" ng-click="staffCtrl.signOut()">Logout</a></li>                
+                    </ul> 
+            </nav>  
+        </header>
+        <div id="outer">
+            <div class="mainheader">
+                <h1>View Profile</h1>
+            </div>
+        <h4><b> {{staffCtrl.staffloggedin.firstname}} {{staffCtrl.staffloggedin.surname}} </b></h4>
+        <p> Username: {{staffCtrl.staffloggedin.username}}</p>
+        <p> Gender: {{staffCtrl.staffloggedin.gender}}</p>
+        <p> Date of Birth: {{staffCtrl.staffloggedin.dateOfBirth}}</p>
+        <p> Field: {{staffCtrl.staffloggedin.category}}</p>
+        <p> Description: {{staffCtrl.staffloggedin.description}}</p>
+        <p> Email Address: {{staffCtrl.staffloggedin.email}}</p>
+        <p> Phone Number: {{staffCtrl.staffloggedin.phoneNumber}}</p>
+        <p> Searching: {{staffCtrl.staffloggedin.searching}}</p>
+        <button>Edit Profile</button><br><br>
+            <div id="inner">
+                ALERT: Currently we do not have the 'Edit Profile' feature working. Please be patient <br>
+                while the developers complete implementation in the coming months. <br>
+                For now, if you have any serious problems with your account details, then contact us. <br>
+                You can find our contact details in our 'About' page and we will respond within 2-3 business days.
+            </div>
+        </div>
+    </body>
+</html>
