@@ -19,7 +19,7 @@ This project was group work done for at my study abroad semester at the Universi
 ![Notifications](Demo_Images/Notifications.png)
 ![Approvedrequest](Demo_Images/Approvedrequest.png)
 
-##Feasibility Study
+## Feasibility Study
 
 Practicality: 
 
